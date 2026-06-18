@@ -1,0 +1,208 @@
+*{
+    padding:0;
+    margin: 0;
+    border:0;
+    box-sizing: border-box;
+    text-decoration: none;
+    outline: none;
+    list-style-type: none;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body{
+    background-color: #dadada;
+}
+
+header{
+    padding: 16px 120px;
+    background-color: rgb(228, 122, 218);
+}
+
+header input{
+    width: 100%;
+    height: 60px;
+    padding: 0 10px;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+#tarefas{
+    padding: 60px;
+}
+
+#tarefas h2{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size:48px;
+}
+
+#tarefas h2 button{
+    color:#fff;
+    width: 120px;
+    height: 40px;
+    cursor:pointer;
+    font-size: 12px;
+    font-weight: 500;
+    border-radius: 20px;
+    text-transform: uppercase;
+    background-color: #e47ad0;
+}
+
+#tarefas h2 button:hover{
+    background-color: #d236b5;
+}
+
+#tarefas h6{
+    color:black;
+    font-size: 17px;
+    text-align: center;
+    font-weight: 100;
+}
+
+#tarefas ul{
+    display: flex;
+    flex-wrap: wrap;
+    gap:16px;
+    margin-top: 36px;
+}
+
+#tarefas ul li{
+    width: calc(25% - 12px);
+    padding: 32px 16px 16px 16px; /* Espaço no topo para o X não cobrir o texto */
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 5px 5px #17172e;
+    position: relative; /* Mantém o botão X preso dentro do bloco da tarefa */
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+#tarefas ul li h5 {
+    font-size: 18px;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+#tarefas ul li p {
+    font-size: 14px;
+    color: #666;
+}
+
+/* Estiliza e posiciona o ícone X no canto superior direito de cada card */
+#tarefas ul li box-icon.btn-fechar-tarefa {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 20px;
+    height: 20px;
+    fill: #999;
+    cursor: pointer;
+    transition: fill 0.2s, transform 0.2s;
+}
+
+#tarefas ul li box-icon.btn-fechar-tarefa:hover {
+    fill: #d236b5; /* Fica rosa escuro no hover */
+    transform: scale(1.15);
+}
+
+#overlay{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    background-color: rgba(245, 207, 238, 0.6); /* Fundo rosa transparente */
+    visibility: hidden;
+    opacity: 0;
+    transition-duration:200ms;
+}
+
+#overlay.active{ 
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal{
+    width: 400px;
+    padding: 16px;
+    background-color: white;
+    border-radius: 10px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    z-index: 2;
+    transform: translate(-50%, -50%);
+    visibility: hidden;
+    opacity: 0;
+    transition-duration:200ms;
+}
+
+.modal.active{ 
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal form h3{
+    color: #999;
+    font-size: 24px;
+    margin-bottom: 26px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal form h3 box-icon{
+    width: 24px;
+    height: 24px;
+    fill: #999;
+    cursor: pointer;
+}
+
+.modal form h3 box-icon:hover{
+   fill:#d236b5;
+}
+
+.modal form label{
+    display: block;
+    font-size:12px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+}
+
+.modal form input, .modal form textarea{
+    width: 100%;
+    height: 40px;
+    border:2px solid #f5cfee;
+    border-radius: 5px;
+    margin-bottom: 16px;
+    padding-left: 10px;
+}
+
+.modal form input:focus, .modal form textarea:focus{
+    border-color: #d236b5;
+}
+
+.modal form textarea{
+    padding-top: 10px;
+    height: 120px;
+    resize: none;
+}
+
+.modal form button{
+    color:#fff;
+    width: 120px;
+    height: 40px;
+    cursor:pointer;
+    font-size: 12px;
+    font-weight: 500;
+    border-radius: 20px;
+    text-transform: uppercase;
+    background-color: #e47ad0;
+}
+
+.modal form button:hover{
+    background-color: #d236b5;
+}
